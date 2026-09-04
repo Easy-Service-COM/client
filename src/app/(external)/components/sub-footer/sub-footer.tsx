@@ -1,6 +1,5 @@
 import { LogoFull } from '@/assets/ui-kit/logo/full/full';
 import styles from './sub-footer.module.scss';
-import { LogoIco } from '@/assets/ui-kit/logo/ico/ico';
 import Button from '@/assets/ui-kit/button/button';
 
 export function SubFooter() {

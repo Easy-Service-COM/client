@@ -219,15 +219,6 @@ export function Header() {
                             })}
                         </div>
                     </div>
-                    <div className={styles.actions}>
-                        <Button 
-                            className={styles.button} 
-                            variant='contrast'
-                            onClick={closeMenu}
-                        >
-                            Войти
-                        </Button>
-                    </div>
                 </div>
             )}
         </>

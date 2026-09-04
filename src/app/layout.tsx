@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={styles.layout} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/images/logo/base.png" />
+        <link rel="icon" href="/images/logo/ico-logo.svg" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

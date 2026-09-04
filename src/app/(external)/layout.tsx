@@ -2,6 +2,7 @@ import styles from './layout.module.scss';
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
 import { SubFooter } from "./components/sub-footer/sub-footer";
+import { ContactWidget } from './components/contact-widget/widget';
 
 export default function RootLayout({
   children,
@@ -14,6 +15,7 @@ export default function RootLayout({
         <div className={styles.content}>{children}</div>
         <Footer />
         <SubFooter />
+        <ContactWidget />
     </>
   );
 }

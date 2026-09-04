@@ -56,7 +56,7 @@ export const organizationSchema = {
     "@type": "Organization",
     "name": "Easy Service",
     "url": "https://easytronicservice.ru",
-    "logo": "https://easytronicservice.ru/images/logo/base.png",
+    "logo": "https://easytronicservice.ru/images/logo/ico-logo.svg",
     "sameAs": [
     ]
 }

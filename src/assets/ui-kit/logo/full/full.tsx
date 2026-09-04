@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { LogoIco } from '../ico/ico';
-import { LogoText } from '../text/text';
 import styles from './full.module.scss';
+import LogoIco from '../ico/ico';
+import LogoText from '../text/text';
 
 export interface LogoFullProps {
     className?: string;
@@ -16,7 +16,7 @@ export function LogoFull({
 }: LogoFullProps) {
     return (
         <span className={clsx(styles.area, className)} data-animate={animate}>
-            <span className={styles.box}><LogoIco color={color} animate={animate} /></span>
+            <span className={styles.box}><LogoIco color={color} /></span>
             <span className={styles.box}><LogoText color={color} /></span>
         </span>
     )
