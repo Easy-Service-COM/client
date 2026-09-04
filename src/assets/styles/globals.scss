@@ -1,0 +1,15 @@
+@use './base/reset';
+@use './base/themes/dark';
+@use './base/themes/light';
+@use './base/typography';
+
+.recharts-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.recharts-surface {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}

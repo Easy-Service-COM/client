@@ -1,0 +1,15 @@
+@use '@/assets/styles/_mixins.scss' as *;
+
+.slideContent {
+    display: flex;
+    flex: 1;
+    max-width: var(--focus-width);
+}
+
+.slide {
+    position: relative;
+    
+    &:nth-child(1) {
+        overflow: hidden;
+    }
+}

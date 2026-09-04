@@ -1,0 +1,55 @@
+.link {
+    text-decoration: dashed;
+    transition: color var(--transition);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: .3em;
+    text-decoration-color: var(--color-text-hint);
+    text-decoration-thickness: 2px;
+
+    &:hover {
+        color: var(--color-text-hint);
+    }
+}
+
+.underline {
+    text-decoration: dashed;
+    transition: color var(--transition);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: .3em;
+    text-decoration-color: var(--color-text-primary);
+    text-decoration-thickness: 2px;
+}
+
+
+.tag {
+    padding: 0 .4em;
+    border-radius: .4em;
+    border: 1px dashed var(--color-stroke-primary);
+}
+
+.codeTag {
+    padding: .2em .4em;
+    border-radius: .4em;
+    border: 1px dashed var(--color-stroke-primary);
+    font-family: 'Courier New', Courier, monospace;
+    // font-family: 'Segoe UI', 'Roboto', 'Consolas', monospace;
+}
+
+.secondary {
+    color: var(--color-text-secondary);
+}
+
+.accent {
+    color: var(--color-text-hint);
+}
+
+.method {
+    transition: color var(--transition);
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-underline-offset: .34em;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: .2em;
+}
