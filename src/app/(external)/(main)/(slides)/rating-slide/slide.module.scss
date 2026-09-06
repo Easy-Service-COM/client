@@ -1,0 +1,69 @@
+@use '@/assets/styles/_mixins.scss' as *;
+
+.slide {
+    display: flex;
+    flex-flow: column nowrap;
+    padding-top: 2rem;
+    
+    .col {
+        display: flex;
+        flex: 1;
+        flex-flow: column nowrap;
+        gap: .2rem;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+            display: inline-flex;
+            flex-flow: row nowrap;
+            gap: .3em;
+            align-items: center;
+            font-size: 2.8em;
+            font-weight: 800;
+            color: var(--color-brand);
+            
+            .text {
+                color: var(--color-text-primary);
+            }
+
+            svg {
+                width: .8em;
+                height: .8em;
+            }
+
+            &:nth-child(2) {
+                font-size: 1.5em;
+                
+            }
+        }
+        .capture {
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-top: .8rem;
+            text-decoration: underline 7px var(--color-brand);
+        }
+    }
+    
+    .actions {
+        font-weight: 500;
+        display: flex;
+        flex-flow: row wrap;
+        gap: .5rem;
+        margin-top: .5rem;
+        font-size: .85em;
+        border-color: #000;
+        justify-content: center;
+
+        .cut {
+            @include text-ellipsis();
+            max-width: 10rem;
+        }
+        .button.big {
+            border-radius: 1.25em;
+            height: 4.2em;
+            padding: 0 3em;
+            border: none;
+            font-weight: 600;
+        }
+    }
+}

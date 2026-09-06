@@ -1,0 +1,133 @@
+@use '@/assets/styles/_mixins.scss' as *;
+
+.button {
+  display: inline-flex;
+  height: 3.4em;
+  font-size: 1em;
+  border-radius: 0.55em;
+  @include cursor(pointer);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-stroke-secondary);
+  gap: .5em;
+  padding: 0em 0.9em;
+
+  flex-flow: row nowrap;
+  
+  .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    svg {
+      width: 1em;
+      height: 1em;
+    }
+  }
+  
+  .text {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+
+  // Variants
+  &.default {
+    background-color: var(--color-surface-secondary);
+    color: var(--color-text-primary);
+  }
+  &.leader {
+    background-color: var(--color-leader);
+    color: var(--color-text-primary);
+  }
+  &.contrast {
+    background-color: var(--color-contrast);
+    color: var(--color-contrast-text-primary);
+  }
+  &.elevated {
+    background-color: var(--color-surface-elevated);
+    color: var(--color-text-primary);
+  }
+  &.empty {
+    background-color: transparent;
+    color: var(--color-text-primary);
+  }
+  &.glass {
+    background-color: var(--color-surface-glass);
+    backdrop-filter: blur(10px);
+    color: var(--color-text-primary);
+  }
+  &.brand {
+    background-color: var(--color-brand);
+    color: var(--color-accent-text-primary);
+  }
+  &.accent {
+    background-color: var(--color-accent);
+    color: var(--color-accent-text-primary);
+  }
+  &.red, &.green {
+    color: var(--color-accent-text-primary);
+  }
+  &.red {
+    background-color: var(--color-red);
+  }
+  &.green {
+    background-color: var(--color-green);
+    color: #000;
+  }
+  &.orange {
+    background-color: rgb(255, 102, 0);
+    color: #fff;
+  }
+  &.light {
+    background-color: var(--color-surface-light);
+  }
+  &.fullWidth {
+    width: 100%;
+  }
+
+  // link
+  &.link {
+    color: var(--color-link-primary);
+    background-color: var(--color-link-primary-background);
+    border: none;
+  }
+
+  // text
+  .bold {
+    font-weight: 600;
+  }
+
+  // Border
+  &.round {
+    border-radius: 3em;
+    padding-left: 1.3em;
+    padding-right: 1.3em;
+  }
+  &.borderNone {
+    border-width: 0;
+  }
+
+  // Sizes
+  &.bg {
+    font-size: 1.25em;
+  }
+  &.sm {
+    font-size: 0.75em;
+  }
+
+  // States
+  &.disabled {
+      background-color: var(--color-surface-primary);
+      color: var(--color-text-primary);
+      cursor: not-allowed;
+
+      &:hover {
+          transform: none !important;
+      }
+  }
+}

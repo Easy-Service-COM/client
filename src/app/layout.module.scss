@@ -1,0 +1,14 @@
+@use '@/assets/styles/_mixins.scss' as *;
+
+// Родительский контейнер 
+// для всех страниц и компонентов
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh;
+    position: relative;
+
+    @media (max-width: 720px) {
+        // font-size: 1.2rem;
+    }
+}

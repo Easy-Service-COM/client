@@ -1,0 +1,90 @@
+@use '@/assets/styles/_mixins.scss' as *;
+
+.content {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+    padding: 1em;
+    gap: .4em;
+
+    .title {
+        font-weight: 600;
+        line-height: 1.2;
+
+        .accent {
+            color: var(--color-brand);
+        }
+    }
+    .form {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: .5em;
+        margin-bottom: 1em;
+        font-size: .6em;
+
+        .columns {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: .5em;
+        }
+
+        .result {
+            display: flex;
+            min-height: 5em;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column nowrap;
+            gap: .8em;
+            padding: 1em 0;
+
+            .icon {
+                width: 5em;
+                height: 5em;
+                fill: var(--color-brand);
+            }
+            .text {
+                text-align: center;
+                line-height: 1.3;
+                font-size: 1.1em;
+            }
+        }
+    }
+    .contacts {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: .5em;
+
+        .col {
+            display: flex;
+            flex: 1;
+            border-radius: .7em;
+            background-color: var(--color-surface-glass);
+            align-items: center;
+            justify-content: center;
+            padding: 1em 0;
+            @include cursor(pointer);
+            color: var(--color-text-primary);
+            border: 1px solid var(--color-stroke-secondary);
+            transition: box-shadow var(--transition);
+
+            .icon {
+                width: 1em;
+            }
+
+            &:hover {
+                box-shadow: 0 0 10px var(--color-surface-light);
+            }
+        }
+    }
+
+    @media (max-width: 720px) {
+        .contacts .col {
+            padding: .45em 0;
+            border-radius: .5em;
+
+            .icon {
+                width: .9em;
+            }
+        }
+    }
+}
