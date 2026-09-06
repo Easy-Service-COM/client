@@ -13,6 +13,7 @@ import { CatalogUnit, UnitType, UnitStatus } from '@/apps/kroncl/wm/types';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { searchUnits } from './catalog';
 import Checkbox from '@/assets/ui-kit/checkbox/checkbox';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 
 interface Filters {
     type: UnitType | null;
@@ -23,16 +24,53 @@ export default function SearchSlide({
     className
 }: PageBlockProps) {
     const { open } = useContactWidget();
-    const [search, setSearch] = useState('');
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const pathname = usePathname();
+    
+    // Инициализация фильтров из URL
+    const getInitialFilters = (): Filters => {
+        const type = searchParams.get('type') as UnitType | null;
+        const status = searchParams.get('status') as UnitStatus | null;
+        
+        // Проверяем, что значения валидны
+        const validType = type === 'product' || type === 'service' ? type : null;
+        const validStatus = status === 'active' || status === 'inactive' ? status : null;
+        
+        return {
+            type: validType,
+            status: validStatus
+        };
+    };
+
+    const [search, setSearch] = useState(searchParams.get('search') || '');
     const [units, setUnits] = useState<CatalogUnit[]>([]);
     const [loading, setLoading] = useState(false);
     const [initialLoading, setInitialLoading] = useState(true);
-    const [hasSearched, setHasSearched] = useState(false);
-    const [filters, setFilters] = useState<Filters>({
-        type: null,
-        status: null
-    });
+    const [hasSearched, setHasSearched] = useState(!!searchParams.get('search'));
+    const [filters, setFilters] = useState<Filters>(getInitialFilters);
     const debounceTimer = useRef<NodeJS.Timeout | null>(null);
+    const isFirstRender = useRef(true);
+
+    // Обновление URL при изменении фильтров или поиска
+    const updateURL = useCallback((query: string, currentFilters: Filters) => {
+        const params = new URLSearchParams();
+        
+        if (query.trim()) {
+            params.set('search', query.trim());
+        }
+        
+        if (currentFilters.type) {
+            params.set('type', currentFilters.type);
+        }
+        
+        if (currentFilters.status) {
+            params.set('status', currentFilters.status);
+        }
+        
+        const newUrl = params.toString() ? `${pathname}?${params.toString()}` : pathname;
+        router.replace(newUrl, { scroll: false });
+    }, [pathname, router]);
 
     // Функция для построения параметров запроса
     const buildSearchParams = useCallback((query: string, currentFilters: Filters) => {
@@ -79,11 +117,14 @@ export default function SearchSlide({
         }
     }, [buildSearchParams]);
 
-    // Первоначальная загрузка
+    // Первоначальная загрузка с учетом фильтров из URL
     useEffect(() => {
         const fetchInitialUnits = async () => {
             setInitialLoading(true);
-            const params = buildSearchParams('', filters);
+            const initialFilters = getInitialFilters();
+            setFilters(initialFilters);
+            
+            const params = buildSearchParams(search, initialFilters);
             try {
                 const response = await searchUnits(params);
                 if (response.status && response.data) {
@@ -102,6 +143,8 @@ export default function SearchSlide({
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setSearch(value);
+        
+        updateURL(value, filters);
 
         if (debounceTimer.current) {
             clearTimeout(debounceTimer.current);
@@ -114,17 +157,25 @@ export default function SearchSlide({
 
     // Обработка изменения фильтров
     const handleTypeFilter = (type: UnitType) => {
-        setFilters(prev => ({
-            ...prev,
-            type: prev.type === type ? null : type
-        }));
+        setFilters(prev => {
+            const newFilters = {
+                ...prev,
+                type: prev.type === type ? null : type
+            };
+            updateURL(search, newFilters);
+            return newFilters;
+        });
     };
 
     const handleStatusFilter = (status: UnitStatus) => {
-        setFilters(prev => ({
-            ...prev,
-            status: prev.status === status ? null : status
-        }));
+        setFilters(prev => {
+            const newFilters = {
+                ...prev,
+                status: prev.status === status ? null : status
+            };
+            updateURL(search, newFilters);
+            return newFilters;
+        });
     };
 
     // При изменении фильтров перезапрашиваем данные

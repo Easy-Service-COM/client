@@ -80,7 +80,7 @@ export default function ServicesSlide({
                 <Button 
                     className={styles.actions}
                     as='link'
-                    href='/services'
+                    href='/catalog?type=service'
                     border='round'
                     text='bold'
                     variant='contrast'
