@@ -13,4 +13,7 @@
         overflow: hidden;
         border-bottom: 1px solid var(--color-stroke-secondary);
     }
+    &:last-child {
+        padding-bottom: 0 !important;
+    }
 }

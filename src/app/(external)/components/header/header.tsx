@@ -17,9 +17,11 @@ import { ModalMenu } from './modal-menu/menu';
 import { ThemeSwitcher } from '../footer/switcher/switcher';
 import { ModalTooltip } from '@/app/components/tooltip/tooltip';
 import LogoText from '@/assets/ui-kit/logo/text/text';
+import { useContactWidget } from '../contact-widget/context';
 
 export function Header() {
     const pathname = usePathname();
+    const { open } = useContactWidget();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     
     // Состояние для меню навигации
@@ -139,9 +141,8 @@ export function Header() {
                         <ModalTooltip content='Связаться с нами' compact>
                             <Button 
                                 className={clsx(styles.button)}
-                                as="a"
                                 variant='link'
-                                href='/platform'
+                                onClick={open}
                             >
                                 Свяжитесь с нами
                             </Button>

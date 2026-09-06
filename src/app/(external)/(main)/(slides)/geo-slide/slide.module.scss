@@ -1,0 +1,28 @@
+@use '@/assets/styles/_mixins.scss' as *;
+
+.slide {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    min-height: 14rem;
+
+    .map {
+        position: absolute;
+        z-index: 0;
+        left: 0;
+        bottom: 0;
+        flex: 1;
+        width: 100%;
+        min-height: 14rem;
+        border: none !important;
+        outline: none !important;
+        border-top-left-radius: 1.4rem;
+        border-top-right-radius: 1.4rem;
+        box-shadow: 0 0 10px var(--color-surface-light);
+    }
+}
+
+@media (max-width: 720px) {
+    .slide {
+    }
+}

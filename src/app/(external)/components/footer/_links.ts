@@ -14,7 +14,7 @@ export const linksList: FooterGroup[] = [
     {
         capture: 'Главное',
         links: [
-            // { capture: 'z', href: '/z' },
+            { capture: 'Обслуживание', href: '/z' },
         ]
     },
     {

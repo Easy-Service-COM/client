@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useState } from 'react';
 import ScrollToTop from './ScrollToTop';
 import { ScrollProvider } from './components/scroll-provider/prodiver';
+import { ContactWidgetProvider } from './(external)/components/contact-widget/context';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(
@@ -21,14 +22,14 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   );
 
   return (
-    <ScrollProvider>
-    <QueryClientProvider client={queryClient}>
+    <ContactWidgetProvider>
       <ScrollProvider>
-        {children}
-        <ScrollToTop />
+      <QueryClientProvider client={queryClient}>
+          {children}
+          <ScrollToTop />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
       </ScrollProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
-    </ScrollProvider>
+    </ContactWidgetProvider>
   );
 }

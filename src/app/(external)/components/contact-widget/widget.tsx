@@ -7,42 +7,54 @@ import Phone from '@/assets/ui-kit/icons/phone';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Close from '@/assets/ui-kit/icons/close';
+import { Content } from './content/content';
+import { useContactWidget } from './context';
+import { useScroll } from '@/app/components/scroll-provider/prodiver';
 
 interface ContactWidgetProps {
     className?: string;
 }
 
-export function ContactWidget({
-    className
-}: ContactWidgetProps) {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+export function ContactWidget({ className }: ContactWidgetProps) {
+    const { isOpen, open, close, toggle } = useContactWidget();
+    const { isVisible, isAtBottom } = useScroll();
     const [pulseKey, setPulseKey] = useState(0);
 
+    const shouldShow = isVisible && !isAtBottom && !isOpen;
+
     const handleToggle = () => {
-        setIsModalOpen(!isModalOpen);
+        toggle();
     };
 
     const handleClose = () => {
-        setIsModalOpen(false);
+        close();
     };
 
     useEffect(() => {
-        if (isModalOpen) return; // Останавливаем пульсацию при открытой модалке
+        if (isOpen) return;
 
         const interval = setInterval(() => {
             setPulseKey(prev => prev + 1);
         }, 10000);
 
         return () => clearInterval(interval);
-    }, [isModalOpen]);
+    }, [isOpen]);
 
     return (
         <div className={styles.widgetWrapper}>
             <AnimatePresence mode="wait">
-                {!isModalOpen && (
+                {shouldShow && (
                     <motion.div
                         key="widgetButton"
-                        initial={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ 
+                            opacity: 1, 
+                            scale: 1,
+                            transition: {
+                                duration: 0.4,
+                                ease: [0.22, 1, 0.36, 1]
+                            }
+                        }}
                         exit={{ 
                             opacity: 0, 
                             scale: 0.8,
@@ -62,15 +74,11 @@ export function ContactWidget({
                             Свяжитесь с нами
                         </Button>
 
-                        {/* Пульсирующие контуры */}
                         {[...Array(3)].map((_, index) => (
                             <motion.div
                                 key={`${pulseKey}-${index}`}
                                 className={styles.pulseRing}
-                                initial={{ 
-                                    scale: 1,
-                                    opacity: 0.6
-                                }}
+                                initial={{ scale: 1, opacity: 0.6 }}
                                 animate={{ 
                                     scale: 1 + (index + 1) * 0.4,
                                     opacity: 0
@@ -80,9 +88,7 @@ export function ContactWidget({
                                     ease: "easeOut",
                                     delay: index * 0.15
                                 }}
-                                style={{
-                                    borderColor: 'var(--color-brand)'
-                                }}
+                                style={{ borderColor: 'var(--color-brand)' }}
                             />
                         ))}
                     </motion.div>
@@ -90,7 +96,7 @@ export function ContactWidget({
             </AnimatePresence>
 
             <AnimatePresence mode="wait">
-                {isModalOpen && (
+                {isOpen && (
                     <motion.div
                         key="modal"
                         className={styles.modalOverlay}
@@ -140,6 +146,7 @@ export function ContactWidget({
                                 onClick={handleClose}
                                 icon={<Close />}
                             />
+                            <Content className={styles.content} />
                         </motion.div>
                     </motion.div>
                 )}

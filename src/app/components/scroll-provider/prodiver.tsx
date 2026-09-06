@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState, ReactNode, useCallback } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
 interface ScrollContextType {
     isVisible: boolean;
@@ -17,19 +17,18 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
         let timeoutId: NodeJS.Timeout;
 
         const handleScroll = () => {
-            // Дебаунс для мобилок
             clearTimeout(timeoutId);
             timeoutId = setTimeout(() => {
                 const scrollY = window.scrollY;
                 const windowHeight = window.innerHeight;
                 const documentHeight = document.documentElement.scrollHeight;
                 
-                const showThreshold = 200;
+                const showThreshold = 100; // ✅ 100px вместо 200
                 const bottomThreshold = 50;
                 
                 setIsVisible(scrollY > showThreshold);
                 setIsAtBottom(scrollY + windowHeight >= documentHeight - bottomThreshold);
-            }, 50); // Задержка 50ms
+            }, 50);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });

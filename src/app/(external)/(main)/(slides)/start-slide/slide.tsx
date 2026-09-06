@@ -6,10 +6,13 @@ import clsx from 'clsx';
 import Button from '@/assets/ui-kit/button/button';
 import { containerVariants, itemVariants } from './_animations';
 import { motion } from 'framer-motion';
+import { useContactWidget } from '@/app/(external)/components/contact-widget/context';
 
 export default function StartSlide({
     className
 }: PageBlockProps) {
+    const { open } = useContactWidget();
+
     return (
         <>
         <motion.div 
@@ -23,7 +26,7 @@ export default function StartSlide({
                     className={styles.title}
                     variants={itemVariants}
                 >
-                    Ремонт и запчасти <span className={styles.accent}>высшего</span> качества. Opel. <span className={styles.accent}>Chevrolet.</span> Ford.
+                    Ремонт и запчасти <span className={styles.accent}>высшего</span> качества. Opel. <span className={styles.accent}>Chevrolet.</span> Ford. <span className={styles.accent}>Honda.</span>
                 </motion.div>
                 <motion.div 
                     className={styles.description}
@@ -41,6 +44,7 @@ export default function StartSlide({
                         variant='brand'
                         text='bold'
                         border='round'
+                        onClick={open}
                     >
                         Связаться с нами
                     </Button>

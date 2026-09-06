@@ -19,6 +19,7 @@
     border-radius: .7em !important;
     border: none !important;
     box-shadow: 0 0 3px var(--color-surface-light);
+    border: 1px solid var(--color-stroke-secondary);
 }
 
 .pulseRing {
@@ -57,7 +58,6 @@
     width: 24rem;
     max-height: 80vh;
     overflow-y: auto;
-    padding: 2rem;
     @include no-scrollbar();
     font-size: .6em;
 
@@ -74,10 +74,13 @@
         padding: 0;
     }
 
+    .content {
+    }
+
     @media (max-width: 720px) {
         width: 100%;
         max-width: 100%;
         max-height: 90vh;
-        padding: 1.5rem;
+        padding: 0;
     }
 }
