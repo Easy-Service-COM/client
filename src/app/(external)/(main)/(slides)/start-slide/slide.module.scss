@@ -7,7 +7,7 @@
         display: flex;
         flex-flow: column nowrap;
         gap: 1rem;
-        max-width: 25rem;
+        max-width: 22rem;
         padding: 1.4rem 0;
         z-index: 2;
         justify-content: end;
@@ -85,7 +85,7 @@
 
 @media (max-width: 720px) {
     .slide {
-        padding-bottom: 3rem;
+        padding-bottom: 0rem;
     }
     .modalArt {
         height: 100%;

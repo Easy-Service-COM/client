@@ -1,0 +1,44 @@
+@use '@/assets/styles/_mixins.scss' as *;
+
+.slide {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    
+    .col {
+        display: flex;
+        flex: 1;
+        box-shadow: 0 0 8px var(--color-surface-elevated);
+        border-radius: .8rem;
+        min-height: 5rem;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 2rem;
+        transition: box-shadow var(--transition);
+        @include cursor(pointer);
+
+        img, .icon {
+            width: 6rem;
+        }
+
+        &:hover {
+            box-shadow: 0 0 14px var(--color-surface-tertiary);
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .slide {
+        flex-flow: row wrap;
+
+        .col {
+            max-width: calc(50% - .5rem);
+            min-width: calc(50% - .5rem);
+            padding:  0;
+
+            img, .icon {
+                width: 60%;
+            }
+        }
+    }
+}
