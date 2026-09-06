@@ -49,6 +49,10 @@
             border-bottom-left-radius: .44em;
             border-bottom-right-radius: .44em;
             overflow: hidden;
+
+            @media (max-width: 720px) {
+                display: none;
+            }
         }
     }
 

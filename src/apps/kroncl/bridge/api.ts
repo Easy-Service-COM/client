@@ -9,6 +9,20 @@ class ApiBridge {
         this.companyId = process.env.KRONCL_COMPANY_ID || '';
     }
 
+    // Утилита для построения URL с параметрами
+    buildUrl(endpoint: string, params?: Record<string, any>) {
+        if (!params) return endpoint;
+        
+        const searchParams = new URLSearchParams();
+        Object.entries(params).forEach(([key, value]) => {
+            if (value !== undefined && value !== null) {
+                searchParams.append(key, String(value));
+            }
+        });
+        const query = searchParams.toString();
+        return query ? `${endpoint}?${query}` : endpoint;
+    }
+
     private async request(endpoint: string, options: RequestInit = {}) {
         const url = `${this.baseUrl}${endpoint}`;
         

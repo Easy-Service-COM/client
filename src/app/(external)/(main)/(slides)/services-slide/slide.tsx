@@ -68,7 +68,7 @@ export default function ServicesSlide({
     return (
         <div className={clsx(styles.slide, className)}>
             <div className={styles.col}>
-                <div className={styles.title}><span className={styles.accent}>Более {services.length}</span> основных направлений</div>
+                <div className={styles.title}><span className={styles.accent}>Больше {services.length}</span> основных направлений</div>
                 <div className={styles.description}>Opel Zafira B, Astra H, Corsa C, Corsa D || Ford Fiesta, Fusion</div>
             </div>
             <div className={styles.col}>

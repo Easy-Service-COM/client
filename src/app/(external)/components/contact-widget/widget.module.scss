@@ -54,6 +54,7 @@
     position: relative;
     background-color: var(--color-leader);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-stroke-primary);
     border-radius: .55rem;
     width: 24rem;
     max-height: 80vh;
