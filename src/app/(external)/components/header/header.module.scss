@@ -25,9 +25,30 @@
         align-items: center;
         font-size: .56em;
         font-weight: 600;
+        position: relative;
 
         .text {
             height: 1rem;
+        }
+
+        &::after {
+            content: "5.0";
+            position: absolute;
+            z-index: 1001;
+            bottom: -2em;
+            font-size: .9em;
+            left: 0;
+            background-color: var(--color-brand);
+            color: #fff;
+            height: 2em;
+            width: 6em;
+            // padding: 0 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom-left-radius: .44em;
+            border-bottom-right-radius: .44em;
+            overflow: hidden;
         }
     }
 
