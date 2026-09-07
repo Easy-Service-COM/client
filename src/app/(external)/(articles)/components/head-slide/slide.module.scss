@@ -1,0 +1,14 @@
+@use '@/assets/styles/_mixins.scss' as *;
+
+.slide {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    justify-content: start;
+    font-size: .6em !important;
+    
+
+    .action {
+        font-weight: 500;
+    }
+}

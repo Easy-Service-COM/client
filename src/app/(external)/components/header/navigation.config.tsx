@@ -20,6 +20,7 @@ import { linksConfig } from "@/config/links.config";
 export interface NavigationItem extends NavigationSection {
     name: string;
     menu?: MenuProps;
+    tag?: string;
 }
 
 // Стили для иконок в меню
@@ -34,4 +35,9 @@ export const navigationConfig: NavigationItem[] = [
         name: 'Каталог',
         href: '/catalog',
     },
+    {
+        name: 'Durashift: ошибка P1607',
+        href: '/durashift-oshibka-p1607',
+        tag: 'Новое'
+    }
 ];

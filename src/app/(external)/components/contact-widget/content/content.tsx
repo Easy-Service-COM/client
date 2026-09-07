@@ -88,6 +88,7 @@ export function Content({ className }: ContentProps) {
             </form>
             
             <div className={styles.title}>Связаться <span className={styles.accent}>сейчас же.</span></div>
+            <div className={styles.tip}>Сообщите менеджеру, что пришли с сайта. Отвечаем в течение часа в рабочее время.</div>
             <div className={styles.contacts}>
                 <Link href={linksConfig.whatsapp} className={styles.col}>
                     <WhatsApp className={styles.icon} />
