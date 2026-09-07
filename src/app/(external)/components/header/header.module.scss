@@ -84,6 +84,15 @@
             .name {
                 color: var(--color-text-secondary);
             }
+            .tag {
+                display: inline-block;
+                background-color: var(--color-brand);
+                color: #fff;
+                border-radius: 2em;
+                padding: .3em .4em;
+                font-size: .9em;
+                font-weight: 400;
+            }
 
             .arrow {
                 display: flex;
@@ -291,6 +300,16 @@
                 font-size: 1.2em;
                 font-weight: 600;
                 letter-spacing: .02em;
+            }
+            
+            .tag {
+                display: inline-block;
+                background-color: var(--color-brand);
+                color: #fff;
+                border-radius: 2em;
+                padding: .3em .4em;
+                font-size: .9em;
+                font-weight: 400;
             }
             .icon .svg {
                 width: 1em;

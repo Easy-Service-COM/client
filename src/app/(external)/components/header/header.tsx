@@ -129,6 +129,7 @@ export function Header() {
                                     </svg>
                                 </span>
                             )}
+                            {item.tag && (<span className={styles.tag}>{item.tag}</span>)}
                         </Link>
                     ))}
                 </div>
@@ -215,6 +216,7 @@ export function Header() {
                                         onClick={closeMenu}
                                     >
                                         <span className={styles.name}>{item.name}</span>
+                                        {item.tag && (<span className={styles.tag}>{item.tag}</span>)}
                                     </Link>
                                 );
                             })}
