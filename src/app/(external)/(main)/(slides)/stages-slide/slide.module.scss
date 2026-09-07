@@ -80,15 +80,15 @@
 
             @media (max-width: 720px) {
                 flex-flow: row wrap;
-                gap: .5rem;
+                gap: 2rem .5rem;
 
                 .item {
                     min-width: calc(50% - .25rem);
                     max-width: calc(50% - .25rem);
-                    font-size: .8em;
+                    font-size: .82em;
 
                     .title {
-                        font-size: .8em;
+                        font-size: .93em;
                     }
                 }
             }

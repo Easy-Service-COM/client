@@ -34,8 +34,4 @@ export const navigationConfig: NavigationItem[] = [
         name: 'Каталог',
         href: '/catalog',
     },
-    {
-        name: 'Партнёрам',
-        href: '/partners',
-    },
 ];
