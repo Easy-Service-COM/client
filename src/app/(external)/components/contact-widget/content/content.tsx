@@ -16,6 +16,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useActionState } from 'react';
 import Link from 'next/link';
 import { linksConfig } from '@/config/links.config';
+import { formatPhoneNumber } from '@/assets/utils/phone-utils';
 
 interface ContentProps {
     className?: string;
@@ -89,6 +90,7 @@ export function Content({ className }: ContentProps) {
             
             <div className={styles.title}>Связаться <span className={styles.accent}>сейчас же.</span></div>
             <div className={styles.tip}>Сообщите менеджеру, что пришли с сайта. Отвечаем в течение часа в рабочее время.</div>
+            <Link href={`tel:` + linksConfig.phone} className={styles.phone}>{formatPhoneNumber(linksConfig.phone)}</Link>
             <div className={styles.contacts}>
                 <Link href={linksConfig.whatsapp} className={styles.col}>
                     <WhatsApp className={styles.icon} />
@@ -96,7 +98,7 @@ export function Content({ className }: ContentProps) {
                 <Link href={linksConfig.telegram} className={styles.col}>
                     <Telegram className={styles.icon} />
                 </Link>
-                <Link href={linksConfig.phone} className={styles.col}>
+                <Link href={`tel:` + linksConfig.phone} className={styles.col}>
                     <Phone className={styles.icon} />
                 </Link>
             </div>
