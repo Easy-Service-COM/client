@@ -17,6 +17,7 @@ import Providers from "./providers";
 import ScrollToTop from "./ScrollToTop";
 import ThemeScript from "@/assets/utils/theme";
 import JsonLd from "./components/JsonLd/JsonLd";
+import YandexMetrika from "./components/yandex-metrika/block";
 
 export const viewport: Viewport = {
   themeColor: '#ffffff',
@@ -41,12 +42,14 @@ export default function RootLayout({
         
         <JsonLd data={webSiteSchema} />
         <JsonLd data={organizationSchema} />
+        
       </head>
       <body className={styles.container} suppressHydrationWarning>
         <ThemeScript />
         <Providers>
             {children}
         </Providers>
+        <YandexMetrika />
       </body>
     </html>
   );
