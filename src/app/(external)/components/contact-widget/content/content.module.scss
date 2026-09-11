@@ -49,6 +49,19 @@
             }
         }
     }
+    .phone {
+        display: flex;
+        flex: 1;
+        border-radius: .7em;
+        background-color: var(--color-surface-glass);
+        align-items: center;
+        justify-content: center;
+        padding: 1em 0;
+        @include cursor(pointer);
+        color: var(--color-brand);
+        border: 1px solid var(--color-stroke-secondary);
+        font-weight: 600;
+    }
     .contacts {
         display: flex;
         flex-flow: row nowrap;
