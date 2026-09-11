@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://kroncl.com/sitemap.xml',
+    sitemap: 'https://easytronicservice.ru/sitemap.xml',
   }
 }
