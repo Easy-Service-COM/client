@@ -85,8 +85,8 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    // google: 'твой-код-из-google-search-console',
-    // yandex: 'твой-код-из-яндекс-вебмастера',
+    google: '3_mfEeZLIa5Mpj8mgCuTKbx75N0CJ2uHEpy3-PA5uAs',
+    yandex: '1c063a3e05c466a6',
   },
 
   category: 'automotive',
@@ -124,6 +124,7 @@ export default function RootLayout({
         <JsonLd data={webSiteSchema} />
         <JsonLd data={organizationSchema} />
         <meta name="google-site-verification" content="3_mfEeZLIa5Mpj8mgCuTKbx75N0CJ2uHEpy3-PA5uAs" />
+        <meta name="yandex-verification" content="1c063a3e05c466a6" />
       </head>
 
       <body className={styles.container} suppressHydrationWarning>
