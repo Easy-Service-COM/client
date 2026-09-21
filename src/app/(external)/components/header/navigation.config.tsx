@@ -36,7 +36,7 @@ export const navigationConfig: NavigationItem[] = [
         href: '/catalog',
     },
     {
-        name: 'Durashift: ошибка P1607',
+        name: 'Ошибка P1607 Easytronic',
         href: '/durashift-oshibka-p1607',
         tag: 'Новое'
     }
