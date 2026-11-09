@@ -1,6 +1,7 @@
 @mixin theme {
     // ==================== CORE IDENTITY ====================
     --color-brand: rgb(231, 71, 71);
+    --color-brand-contrast: #fcfcfc;
     --color-brand-light: var(--color-brand);
     --color-brand-pale: var(--color-brand);
     --color-leader: #ffffff;
