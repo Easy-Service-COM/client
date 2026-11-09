@@ -19,6 +19,7 @@ import { ModalTooltip } from '@/app/components/tooltip/tooltip';
 import LogoText from '@/assets/ui-kit/logo/text/text';
 import { useContactWidget } from '../contact-widget/context';
 
+
 export function Header() {
     const pathname = usePathname();
     const { open } = useContactWidget();
@@ -108,6 +109,7 @@ export function Header() {
                 </Link>
 
                 <div className={styles.navigation}>
+                    {/** основные разделы */}
                     {navigationConfig.map((item, index) => (
                         <Link
                             href={item.href} 

@@ -13,12 +13,12 @@ export default function HeadSlide({
     return (
         <div className={clsx(styles.slide, className)}>
             <Button
-                children='Домой'
+                children='Все статьи'
                 icon={<Home />}
                 variant='elevated'
                 border='round'
                 as='link'
-                href='/'
+                href='/compilation'
                 className={styles.action}
             />
         </div>

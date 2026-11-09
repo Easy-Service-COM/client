@@ -27,7 +27,7 @@ export function Content({ className }: ContentProps) {
 
     return (
         <div className={clsx(styles.content, className)}>
-            <div className={styles.title}>Оставить заявку?</div>
+            {/* <div className={styles.title}>Оставить заявку?</div>
             <form action={formAction} className={styles.form}>
                 <AnimatePresence mode="wait">
                     {!state ? (
@@ -60,10 +60,6 @@ export function Content({ className }: ContentProps) {
                                     {value: 'Покупка запчасти', label: 'Покупка запчасти'}
                                 ]} 
                             />
-                            {/* <Textarea 
-                                placeholder='Опишите проблему' 
-                                name="problem"
-                            /> */}
                             
                             <Button 
                                 className={styles.action} 
@@ -86,9 +82,9 @@ export function Content({ className }: ContentProps) {
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </form>
+            </form> */}
             
-            <div className={styles.title}>Связаться <span className={styles.accent}>сейчас же.</span></div>
+            <div className={styles.title}>Свяжитесь <span className={styles.accent}>с нами</span></div>
             <div className={styles.tip}>Сообщите менеджеру, что пришли с сайта. Отвечаем в течение часа в рабочее время.</div>
             <Link href={`tel:` + linksConfig.phone} className={styles.phone}>{formatPhoneNumber(linksConfig.phone)}</Link>
             <div className={styles.contacts}>

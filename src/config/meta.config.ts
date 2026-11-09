@@ -1,9 +1,6 @@
-// ============================================================
-// Константы проекта
 
 import { formatPhoneNumber } from "@/assets/utils/phone-utils";
 
-// ============================================================
 export const SITE_NAME = 'Easy Service';
 export const SITE_URL = 'https://easytronicservice.ru';
 export const SITE_SLOGAN = 'Ремонт высшего качества';
@@ -49,7 +46,15 @@ const metaConfigs: Record<string, MetaConfig> = {
       'Полный каталог услуг и товаров Easy Service: ремонт Easytronic, замена сцепления, диагностика, ремонт генераторов и другие работы и агрегаты.',
     canonical: `${SITE_URL}/catalog`,
   },
-  // Пример для статьи — добавляй по мере появления
+  compilation: {
+    title: 'Наши статьи и разборы',
+    description: 'Разбираем причины и способы устранения ошибок Opel, Ford, Honda, Chevrolet. Руководства эксплуатации агрегатов и узлов.',
+    canonical: `${SITE_URL}/compilation`,
+  },
+
+  // -----
+  // мета для статей (ебашим сюда)
+  // -----
   'durashift-oshibka-p1607': {
     title: 'Ошибка P1607 Easytronic: причины и ремонт',
     description:
