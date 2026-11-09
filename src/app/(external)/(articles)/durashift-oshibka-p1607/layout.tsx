@@ -1,3 +1,5 @@
+// гетаем мету из конфига
+// для каждой статьи своя мета / дефолтная
 import { getMetaConfig } from '@/config/meta.config';
 const cfg = getMetaConfig('durashift-oshibka-p1607');
 export const metadata = {

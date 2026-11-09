@@ -16,6 +16,7 @@ import { NavigationSection } from "@/assets/utils/sections";
 import { MenuProps } from "./modal-menu/_types";
 import Package from "@/assets/ui-kit/icons/package";
 import { linksConfig } from "@/config/links.config";
+import { articlesList } from "../../(articles)/_list";
 
 export interface NavigationItem extends NavigationSection {
     name: string;
@@ -36,8 +37,8 @@ export const navigationConfig: NavigationItem[] = [
         href: '/catalog',
     },
     {
-        name: 'Ошибка P1607 Easytronic',
-        href: '/durashift-oshibka-p1607',
-        tag: 'Новое'
+        name: 'Наши статьи',
+        href: '/compilation',
+        tag: 'Будет полезно'
     }
 ];
