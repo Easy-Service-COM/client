@@ -21,7 +21,7 @@ export default function RatingSlide({
                     <span className={styles.icon}><Star /></span>
                 </div>
                 <div className={styles.title}>
-                    <span className={styles.number}>290+</span>
+                    <span className={styles.number}>303+</span>
                     <span className={styles.text}>отзывов</span>
                 </div>
                 <div className={styles.capture}>Нам доверяют</div>
